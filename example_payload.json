@@ -1,0 +1,48 @@
+{
+    "Base": "https://basic.user.service.example.com:443",
+    "Cookies": [
+        "DASFASfsdfsdFWE43345sdfSDFDSF4353sdfasdasdDasfSDFsdfDSfsDG1",
+        "DASFASfsdfsdFWE43345sdfSDFDSF4353sdfasdasdDasfSDFsdfDSfsDG2",
+        "DASFASfsdfsdFWE43345sdfSDFDSF4353sdfasdasdDasfSDFsdfDSfsDG3",
+        "DASFASfsdfsdFWE43345sdfSDFDSF4353sdfasdasdDasfSDFsdfDSfsDG4",
+    ],
+    "WriteDelay": 25,
+    "ReadDelay": 10,
+    "Targets": [
+        {
+            "Method": "GET",
+            "Path": "/users",
+            "CookieLess": false,
+            "Weight": 50,
+            "Payload": ""
+        },
+        {
+            "Method": "GET",
+            "Path": "/users/${PREVIOUS_RANDOM_NUM}",
+            "CookieLess": false,
+            "Weight": 100,
+            "Payload": ""
+        },
+        {
+            "Method": "POST",
+            "Path": "/users",
+            "CookieLess": false,
+            "Weight": 10,
+            "Payload": "{\"username\": \"user_${RANDOM_NUM}\"}"
+        },
+        {
+            "Method": "PUT",
+            "Path": "/users/${PREVIOUS_RANDOM_NUM}",
+            "CookieLess": false,
+            "Weight": 20,
+            "Payload": "{\"username\": \"user_${RANDOM_NUM}\"}"
+        },
+        {
+            "Method": "DELETE",
+            "Path": "/users/${PREVIOUS_RANDOM_NUM}",
+            "CookieLess": false,
+            "Weight": 5,
+            "Payload": ""
+        }
+    ]
+}
